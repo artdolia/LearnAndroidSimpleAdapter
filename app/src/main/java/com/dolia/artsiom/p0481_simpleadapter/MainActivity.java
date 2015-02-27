@@ -14,7 +14,7 @@ public class MainActivity extends ActionBarActivity {
 
     final String ATTR_NAME_TEXT = "text";
     final String ATTR_NAME_CHECK = "check";
-    //final String ATTR_NAME_IMAGE = "image";
+    final String ATTR_NAME_IMAGE = "image";
 
     ListView lvSimple;
 
@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
                 "sometext 4", "sometext 5" };
 
         boolean[] checked = { true, false, false, true, false };
-        //int img = R.drawable.ic_launcher;
+        int img = R.mipmap.ic_launcher;
 
         ArrayList<Map<String , Object>> data = new ArrayList<Map<String , Object>>(texts.length);
         Map<String , Object> m;
@@ -37,13 +37,13 @@ public class MainActivity extends ActionBarActivity {
             m = new HashMap<String, Object>();
             m.put(ATTR_NAME_TEXT, texts[i]);
             m.put(ATTR_NAME_CHECK, checked[i]);
-            //m.put(ATTR_NAME_IMAGE, img);
+            m.put(ATTR_NAME_IMAGE, img);
 
             data.add(m);
 
-            String[] from = { ATTR_NAME_TEXT, ATTR_NAME_CHECK, ATTR_NAME_TEXT};
+            String[] from = { ATTR_NAME_TEXT, ATTR_NAME_CHECK, ATTR_NAME_IMAGE, ATTR_NAME_TEXT};
 
-            int[] to = { R.id.tvText, R.id.cbChecked, R.id.cbChecked};
+            int[] to = { R.id.tvText, R.id.cbChecked, R.id.ivImg, R.id.cbChecked};
 
             SimpleAdapter sAdapter = new SimpleAdapter(this, data, R.layout.item, from, to);
 
